@@ -1,11 +1,12 @@
-
+import ButtonFunction from './Button';
 
 function Cart() {
   return (
     <div className="cart-item">
-    <i class="fa-solid fa-cart-shopping"></i>
+    <ButtonFunction />
     </div>
   )
 }
 
 export default Cart
+
