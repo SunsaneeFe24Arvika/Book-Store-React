@@ -16,7 +16,9 @@
   margin: 0;
   padding: 0;
 }
-
+.d-none {
+  display: none;
+}
 .book-list-title {
   padding: 1.5rem 0;
   font-family: var(--primary-title-font);
@@ -58,7 +60,7 @@ ul {
 }
 .book-item {
   background-color: var(--secondary-color);
-  color: var(--secondary-font-color);
+  color: var(--primary-bg-color);
   list-style-type: none;
   border: none;
   border-radius: 8px;
@@ -89,7 +91,11 @@ ul {
 
 }
 .book-aside {
-  justify-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
 }
 .cart-btn {
   background-color: var(--secondary-font-color);
@@ -107,8 +113,9 @@ ul {
 }
 .cart-container {
   position: relative;
+  border: none;
 }
-.check-out-cart {
+.checkout-btn {
   border: none;
 }
 
@@ -121,6 +128,29 @@ ul {
   border-radius: 50%;
   padding: 5px 10px;
   font-size: 12px;
+}
+/* Quantity Button */
+.quantity-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  gap : 10px;
+}
+.decrease-btn, .increase-btn, .quantity {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 30px;
+  font-family: var(--secondary-text-font);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+}
+.puls-btn, .minus-btn {
+  transform: translateX(6px);
 }
 
 @media (max-width: 720px) {

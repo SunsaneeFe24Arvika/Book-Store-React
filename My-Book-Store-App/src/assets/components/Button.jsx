@@ -34,7 +34,7 @@ function ButtonFunction() {
 
     return (
         <div className="cart-container">
-            <button className="check-out-cart">
+            <button className="checkout-btn">
                 <i className="fa-solid fa-cart-shopping"></i>
                 <span className="cart-count">{totalItems}</span>
             </button>

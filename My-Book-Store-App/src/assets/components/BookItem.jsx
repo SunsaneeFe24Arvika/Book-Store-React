@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 
-function BookItem({ title, author, pages, genre, desc }) {
-    const [inCart, setInCart] = useState(false);
+function BookItem({ title, author, pages, genre, desc, addToCart }) {
+    const [quantity, setQuantity] = useState(0); // Hantera kvantitet lokalt
 
-    const handleAddToCart = () => {
-        setInCart(true);
-        alert(`${title} added to cart!`);
+    const handleIncrease = () => {
+        setQuantity((prevQuantity) => prevQuantity + 1);
+    };
+
+    const handleDecrease = () => {
+        setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 0));
     };
 
     return (
@@ -18,13 +21,21 @@ function BookItem({ title, author, pages, genre, desc }) {
                 <p className="book-genre">Genre: {genre}</p>
                 <p className="book-desc">Description: {desc}</p>
                 <aside className="book-aside">
-                <button 
-                    onClick={handleAddToCart} 
-                    className={`cart-btn ${inCart ? "in-cart" : ""}`}>
-                    <i className="fa-solid fa-cart-shopping"></i>
-                    {inCart ? "Added" : "Add to cart"}
-                 
-                </button>
+                    <div className="quantity-container">
+                        <button onClick={handleDecrease} className="decrease-btn">
+                            <p className="minus-btn">-</p>
+                        </button>
+                        <span className="quantity">{quantity}</span>
+                        <button onClick={handleIncrease} className="increase-btn">
+                            <p className="puls-btn">+</p>
+                        </button>
+                    </div>
+                    <button 
+                        onClick={() => addToCart({ title, author, pages, genre, desc, quantity })} 
+                        className="cart-btn">
+                        <i className="fa-solid fa-cart-shopping"></i>
+                        Add to cart
+                    </button>
                 </aside>
             </article>
         </li>
@@ -32,5 +43,3 @@ function BookItem({ title, author, pages, genre, desc }) {
 }
 
 export default BookItem;
-
-
